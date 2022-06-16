@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class PostService {
-
+    //dodanie drugiego komentarza
     private final PostRepository postRepository;
 
     public List<Post> getPosts() {
