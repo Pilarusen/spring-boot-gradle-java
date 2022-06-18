@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class PostController {
-    //lalalalala
     private final PostService postService;
 
     @GetMapping("/posts")
