@@ -22,4 +22,5 @@ public class Post {
     @OneToMany
     @JoinColumn(name = "postId")
     private List<Comment> comment;
+
 }
