@@ -2,10 +2,7 @@ package pl.nullpointerexception.restapi.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.nullpointerexception.restapi.controller.dto.PostDto;
 import pl.nullpointerexception.restapi.model.Post;
 import pl.nullpointerexception.restapi.service.PostService;
@@ -36,5 +33,21 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public Post getSinglePost(@PathVariable long id) {
         return postService.getSinglePost(id);
+    }
+
+    @PostMapping("/posts")
+    public Post addPost (@RequestBody Post post) {
+        return postService.addPost(post);
+    }
+
+    @PutMapping("/posts")
+    public Post editPost (@RequestBody Post post) {
+        return postService.editPost(post);
+
+    }
+
+    @DeleteMapping("/posts{id}")
+    public void deletePost(@PathVariable long id) {
+        postService.deletePost(id);
     }
 }
