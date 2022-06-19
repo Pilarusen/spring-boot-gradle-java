@@ -71,4 +71,13 @@ public class PostService {
     public Comment addComment(Comment comment) {
         return commentRepository.save(comment);
     }
+
+    @Transactional
+    public Comment editComment(Comment comment) {
+        Comment commentEdited = commentRepository.findById(comment.getId()).orElseThrow();
+        commentEdited.setContent(comment.getContent());
+        commentEdited.setPostId(comment.getPostId());
+        commentEdited.setCreated(comment.getCreated());
+        return commentEdited;
+    }
 }
