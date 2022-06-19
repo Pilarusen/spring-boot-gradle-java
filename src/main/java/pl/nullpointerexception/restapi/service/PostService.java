@@ -67,4 +67,8 @@ public class PostService {
     public void deletePost(long id) {
         postRepository.deleteById(id);
     }
+
+    public Comment addComment(Comment comment) {
+        return commentRepository.save(comment);
+    }
 }

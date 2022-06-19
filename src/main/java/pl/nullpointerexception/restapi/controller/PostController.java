@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import pl.nullpointerexception.restapi.controller.dto.PostDto;
+import pl.nullpointerexception.restapi.model.Comment;
 import pl.nullpointerexception.restapi.model.Post;
 import pl.nullpointerexception.restapi.service.PostService;
 
@@ -49,5 +50,10 @@ public class PostController {
     @DeleteMapping("/posts{id}")
     public void deletePost(@PathVariable long id) {
         postService.deletePost(id);
+    }
+
+    @PostMapping("/comments")
+    public Comment addComment(@RequestBody Comment comment) {
+        return postService.addComment(comment);
     }
 }
